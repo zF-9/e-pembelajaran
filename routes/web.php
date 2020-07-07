@@ -41,6 +41,11 @@ Route::get('/single-post', function() {
     return view('single-post');
 });
 
+Route::get('/list-course', function() {
+    return view('list-course-demo2');
+});
+
+
 Route::get('/blog', function() {
     return view('blog');
 });

@@ -23,8 +23,9 @@
     <div class="row">
 
       <div class="col-lg-8">
+        <!-- box per category -->
         <p><img class="img-responsive" src="images/post01.jpg"></p>
-        <a href="single-post.html"><h3 class="ctitle">Time to change your apps.</h3></a>
+        <a href="single-post.html"><h3 class="ctitle">TEKNOLOGI MAKLUMAT</h3></a>
         <p>
           <csmall>Posted: April 25, 2014.</csmall> |
           <csmall2>By: Admin - 3 Comments</csmall2>
@@ -35,9 +36,10 @@
         <div class="hline"></div>
 
         <div class="spacing"></div>
+        <!-- box per category -->
 
         <p><img class="img-responsive" src="images/post02.jpg"></p>
-        <a href="single-post.html"><h3 class="ctitle">Our new project is here.</h3></a>
+        <a href="single-post.html"><h3 class="ctitle">KEPIMPINAN</h3></a>
         <p>
           <csmall>Posted: April 25, 2014.</csmall> |
           <csmall2>By: Admin - 3 Comments</csmall2>
@@ -50,7 +52,7 @@
         <div class="spacing"></div>
 
         <p><img class="img-responsive" src="images/post03.jpg"></p>
-        <a href="single-post.html"><h3 class="ctitle">Logo design contest starts now.</h3></a>
+        <a href="single-post.html"><h3 class="ctitle">KESIHATAN</h3></a>
         <p>
           <csmall>Posted: April 25, 2014.</csmall> |
           <csmall2>By: Admin - 3 Comments</csmall2>

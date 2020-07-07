@@ -6,7 +6,7 @@
   <div id="blue">
     <div class="container">
       <div class="row">
-        <h3>Single Project.</h3>
+        <h3>Projek</h3>
       </div>
       <!-- /row -->
     </div>

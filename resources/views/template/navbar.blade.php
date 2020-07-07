@@ -12,7 +12,7 @@
       </div>
       <div class="navbar-collapse collapse navbar-right">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/home-page">UTAMA</a></li>
+          <li class=""><a href="/home-page">UTAMA</a></li>
           <li><a href="/about">INFO</a></li>
           <li><a href="/contact">HUBUNGI KAMI</a></li>
           <li class="dropdown">

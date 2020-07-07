@@ -22,26 +22,26 @@
   <div class="container mtb">
     <div class="row">
       <div class="col-lg-8">
-        <h4>Just Get In Touch!</h4>
+        <h4>Tinggalkan Pesanan Anda!</h4>
         <div class="hline"></div>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
         <form class="contact-form php-mail-form" role="form" action="contactform/contactform.php" method="POST">
 
             <div class="form-group">
-              <input type="name" name="name" class="form-control" id="contact-name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
+              <input type="name" name="name" class="form-control" id="contact-name" placeholder="Nama" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
               <div class="validate"></div>
             </div>
             <div class="form-group">
-              <input type="email" name="email" class="form-control" id="contact-email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+              <input type="email" name="email" class="form-control" id="contact-email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email">
               <div class="validate"></div>
             </div>
             <div class="form-group">
-              <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+              <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Subjek" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
               <div class="validate"></div>
             </div>
 
             <div class="form-group">
-              <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
+              <textarea class="form-control" name="message" id="contact-message" placeholder="Mesej" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
               <div class="validate"></div>
             </div>
 

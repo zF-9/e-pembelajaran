@@ -15,10 +15,7 @@
 
         @include('template.navbar')
 
-
         @yield('content')
-
-
 
       </div>
       <!-- End of Main Content -->

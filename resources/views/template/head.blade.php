@@ -31,6 +31,11 @@
   <!-- Main Stylesheet File -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
+  <!-- Card Stylesheet File -->
+  <link href="{{asset('css/card-flip.css')}}" rel="stylesheet">
+  <link href="{{asset('css/card-show.css')}}" rel="stylesheet">  
+  <link href="{{asset('css/news-card.css')}}" rel="stylesheet"> 
+
   <!-- =======================================================
     Template Name: Solid
     Template URL: https://templatemag.com/solid-bootstrap-business-template/
