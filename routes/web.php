@@ -23,7 +23,7 @@ Route::get('/portfolio', function() {
 
 Route::get('/home-page', function() {
     return view('index-new');
-});
+})->name('homepage');
 
 Route::get('/about', function() {
     return view('about');
@@ -45,6 +45,9 @@ Route::get('/list-course', function() {
     return view('list-course-demo2');
 });
 
+Route::get('/demo-log', function() {
+    return view('auth/login-demo');
+})->name('log-reg');
 
 Route::get('/blog', function() {
     return view('blog');

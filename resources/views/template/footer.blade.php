@@ -68,3 +68,4 @@
 
   <!-- Template Main Javascript File -->
   <script src="{{asset('js/main.js')}}"></script>
+  <script src="{{asset('js/log-reg.js')}}"></script>
