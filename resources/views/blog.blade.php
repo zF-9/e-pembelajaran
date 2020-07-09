@@ -25,7 +25,7 @@
       <div class="col-lg-8">
         <!-- box per category -->
         <p><img class="img-responsive" src="images/post01.jpg"></p>
-        <a href="single-post.html"><h3 class="ctitle">TEKNOLOGI MAKLUMAT</h3></a>
+        <a href="/list-course"><h3 class="ctitle">TEKNOLOGI MAKLUMAT</h3></a>
         <p>
           <csmall>Posted: April 25, 2014.</csmall> |
           <csmall2>By: Admin - 3 Comments</csmall2>

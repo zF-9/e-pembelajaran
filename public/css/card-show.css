@@ -9,7 +9,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .card {
@@ -70,7 +70,7 @@
   top: 10%;
   right: -2px;
   height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);*/
+  border-left: 2px solid rgba(0,0,0,0.025);
 }
 
 .card .additional .user-card .level,

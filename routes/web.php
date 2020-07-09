@@ -53,3 +53,7 @@ Route::get('/blog', function() {
 Route::get('/search', function() {
     return view('searchbar-minimalist');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

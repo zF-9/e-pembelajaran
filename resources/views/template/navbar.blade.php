@@ -20,6 +20,7 @@
             <ul class="dropdown-menu">
               <li><a href="/blog">KATEGORI</a></li>
               <li><a href="/single-post">ARTIKEL</a></li>
+              <li><a href="/list-course">SENARAI KURSUS</a></li>
               <li><a href="/portfolio">GALERI</a></li>
               <li><a href="/single-project">PROJEK</a></li>
             </ul>
