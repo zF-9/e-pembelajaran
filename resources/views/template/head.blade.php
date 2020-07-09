@@ -35,6 +35,7 @@
   <!--<link href="{{asset('css/card-flip.css')}}" rel="stylesheet">
   <link href="{{asset('css/card-show.css')}}" rel="stylesheet">-->  
   <link href="{{asset('css/news-card.css')}}" rel="stylesheet"> 
+  <link href="{{asset('css/modal.css')}}" rel="stylesheet"> 
   <!--<link href="{{asset('css/login-register.css')}}" rel="stylesheet">--> 
 
   <!-- =======================================================

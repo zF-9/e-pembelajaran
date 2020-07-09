@@ -39,6 +39,35 @@
     </div>
   </div>
 
+  <!-- Logout Modal -->
+  <div id="logoutModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+      <div class="modal-content">
+        <div class="modal-header flex-column">
+          <div class="icon-box">
+            <i class="material-icons">&#xE5CD;</i>
+          </div>						
+          <h4 class="modal-title w-100">Log Keluar?</h4>	
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Andakah Anda Ingin Log Keluar? Klik Butang Hijau Untuk Sahkan</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          
+          <button type="button" class="btn btn-success" ><a onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();" style="color:white">Log Keluar</a></button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" >Batal</button>
+            
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="copyrights">
     <div class="container">
       <p>

@@ -43,7 +43,7 @@
 
                   <div class="CTA">
                      <input type="submit" value="Log Masuk">
-                     <a href="#" class="switch">Daftar Masuk</a>
+                     <a href="#" class="switch">DAFTAR MASUK</a>
                   </div>
                </form>
             </div><!-- End Login Form -->
@@ -85,7 +85,7 @@
 
                   <div class="CTA">
                      <input type="submit" value="Daftar Masuk" id="submit">
-                     <a href="#" class="switch">Log Masuk</a>
+                     <a href="#" class="switch">LOG MASUK</a>
                   </div>
 
 
