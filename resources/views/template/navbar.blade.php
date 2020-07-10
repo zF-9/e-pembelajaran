@@ -8,24 +8,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="/home-page">E-PEMBELAJARAN.</a>
+        <a class="navbar-brand" href="/">E-PEMBELAJARAN.</a>
       </div>
       <div class="navbar-collapse collapse navbar-right">
         <ul class="nav navbar-nav">
-          <li class=""><a href="/home-page">UTAMA</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">DIREKTORI <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="/blog">KATEGORI</a></li>
-              <li><a href="/single-post">ARTIKEL</a></li>
-              <li><a href="/list-course">SENARAI KURSUS</a></li>
-              <li><a href="/portfolio">GALERI</a></li>
-              <li><a href="/single-project">PROJEK</a></li>
-            </ul>
-          </li>
-          <li><a href="/about">INFO</a></li>
-          <li><a href="/contact">HUBUNGI KAMI</a></li>
           @guest
+              <li class=""><a href="/">UTAMA</a></li>
+              <li><a href="/about">INFO</a></li>
+              <li><a href="/contact">HUBUNGI KAMI</a></li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ route('login') }}">{{ __('LOG MASUK') }}</a>
               </li>
@@ -54,6 +44,19 @@
 
                 <a href="#logoutModal" class="trigger-btn" data-toggle="modal">Click to Open Confirm Modal</a>
               </li>-->
+              <li class=""><a href="/home-page">UTAMA</a></li>
+              <li><a href="/about">INFO</a></li>
+              <li><a href="/contact">HUBUNGI KAMI</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">DIREKTORI <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/blog">KATEGORI</a></li>
+                  <li><a href="/single-post">ARTIKEL</a></li>
+                  <li><a href="/list-course">SENARAI KURSUS</a></li>
+                  <li><a href="/portfolio">GALERI</a></li>
+                  <li><a href="/single-project">PROJEK</a></li>
+                </ul>
+              </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform:uppercase">
                   {{ Auth::user()->name }} 

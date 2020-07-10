@@ -33,21 +33,21 @@
       <div class="row centered">
         <div class="col-md-4">
           <i class="fa fa-book"></i>
-          <h4>Cari Bahan Rujukan</h4>
+          <h4>Carian Bahan Rujukan</h4>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-          <p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+          <p><br/><a href="#" class="btn btn-theme">Info Lanjut</a></p>
         </div>
         <div class="col-md-4">
           <i class="fa fa-cloud-upload"></i>
-          <h4>Simpanan Cloud</h4>
+          <h4>Senarai Kursus Pembentangan</h4>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-          <p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+          <p><br/><a href="#" class="btn btn-theme">Info Lanjut</a></p>
         </div>
         <div class="col-md-4">
           <i class="fa fa-share-alt-square"></i>
-          <h4>Kongsi</h4>
+          <h4>Maklumat Latihan Dalam Perkhidmatan</h4>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-          <p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+          <p><br/><a href="#" class="btn btn-theme">Info Lanjut</a></p>
         </div>
       </div>
     </div>

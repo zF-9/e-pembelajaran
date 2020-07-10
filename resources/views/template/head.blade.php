@@ -32,11 +32,8 @@
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
   <!-- Card Stylesheet File -->
-  <!--<link href="{{asset('css/card-flip.css')}}" rel="stylesheet">
-  <link href="{{asset('css/card-show.css')}}" rel="stylesheet">-->  
   <link href="{{asset('css/news-card.css')}}" rel="stylesheet"> 
-  <link href="{{asset('css/modal.css')}}" rel="stylesheet"> 
-  <!--<link href="{{asset('css/login-register.css')}}" rel="stylesheet">--> 
+  <link href="{{asset('css/modal.css')}}" rel="stylesheet">  
 
   <!-- =======================================================
     Template Name: Solid
