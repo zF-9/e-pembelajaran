@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Author() {
+        return $this->hasOne(Author::class);
+        return $this->hasMany(Posts::class); 
+        //re-evaluate syntax yang ini
+    }
+
 }
