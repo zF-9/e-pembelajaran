@@ -57,6 +57,10 @@ Route::get('/search', function() {
     return view('searchbar-minimalist');
 });
 
+Route::get('/upload', function() {
+    return view('upload');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -47,6 +47,7 @@
               <li class=""><a href="/home-page">UTAMA</a></li>
               <li><a href="/about">INFO</a></li>
               <li><a href="/contact">HUBUNGI KAMI</a></li>
+              <li><a href="/upload">MUAT NAIK</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">DIREKTORI <b class="caret"></b></a>
                 <ul class="dropdown-menu">

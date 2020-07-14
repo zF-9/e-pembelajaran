@@ -86,6 +86,13 @@
   </div>
   <!-- / copyrights -->
 
+  <script type="text/javascript">
+      $('.date').datepicker({  
+        format: 'dd-mm-yyyy',
+        autoclose: true,
+      });  
+  </script> 
+
   <!-- JavaScript Libraries -->
   <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script>
