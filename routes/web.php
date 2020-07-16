@@ -42,7 +42,7 @@ Route::get('/single-post', function() {
 });
 
 Route::get('/list-course', function() {
-    return view('list-course-demo2');
+    return view('list-course-demo1');
 });
 
 Route::get('/demo-log', function() {
@@ -58,8 +58,19 @@ Route::get('/search', function() {
 });
 
 Route::get('/upload', function() {
-    return view('upload');
+    return view('upload-paperwork');
 });
+
+Route::get('/profile', function() {
+    return view('profile-demo-1');
+});
+
+Route::get('/profile-card', function() {
+    return view('profile-card');
+});
+
+Route::post('/updateAvatar', 'AuthorController@update_avatar');
+
 
 Auth::routes();
 

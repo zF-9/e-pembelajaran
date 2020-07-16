@@ -45,7 +45,7 @@
       <div class="modal-content">
         <div class="modal-header flex-column">
           <div class="icon-box">
-            <i class="material-icons">&#xE5CD;</i>
+          <i class="fa fa-sign-out"></i>
           </div>						
           <h4 class="modal-title w-100">Log Keluar?</h4>	
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -67,6 +67,39 @@
       </div>
     </div>
   </div>
+  <!-- Logout Modal -->
+
+  <!-- Edit Profile Modal -->
+    <div class="container modal fade" id="EditModal">  
+      <form id="contact" action="" method="post">
+      {{ csrf_field() }}
+        <h3>Kemas Kini Maklumat Peribadi</h3>
+        <h4>Contact us for custom quote</h4>
+        <fieldset>
+          <input name="fullname" placeholder="Nama Penuh" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+          <input name="email" placeholder="Emel" type="email" tabindex="2" required>
+        </fieldset>
+        <fieldset>
+          <input name="gred" placeholder="Jawatan & Gred" type="text" tabindex="3" required>
+        </fieldset>
+        <fieldset>
+          <input name="dept" placeholder="Kementerian/Jabatan/Agensi" type="text" tabindex="4" required>
+        </fieldset>
+        <fieldset>
+          <input name="" placeholder="alamat" type="url" tabindex="4" required>
+        </fieldset>
+        <fieldset>
+          <textarea name="address" placeholder="Alamat" tabindex="5" required></textarea>
+        </fieldset>
+        <fieldset>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Simpan</button>
+        </fieldset>
+        <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>
+      </form>
+    </div>
+ <!-- Edit Profile Modal -->
 
   <div id="copyrights">
     <div class="container">
@@ -104,4 +137,5 @@
 
   <!-- Template Main Javascript File -->
   <script src="{{asset('js/main.js')}}"></script>
-  <script src="{{asset('js/log-reg.js')}}"></script>
+  <!--<script src="{{asset('js/log-reg.js')}}"></script>-->
+  <script src="{{asset('js/m-card.js')}}"></script>

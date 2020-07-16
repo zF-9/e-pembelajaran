@@ -15,7 +15,6 @@
       <div id="content">
 
         @yield('content')
-
       </div>
       <!-- End of Main Content -->
 
@@ -23,5 +22,5 @@
       @include('template.footer')
     
 </body>
-
+@stack('scripts')
 </html>

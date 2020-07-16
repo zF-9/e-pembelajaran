@@ -47,7 +47,6 @@
               <li class=""><a href="/home-page">UTAMA</a></li>
               <li><a href="/about">INFO</a></li>
               <li><a href="/contact">HUBUNGI KAMI</a></li>
-              <li><a href="/upload">MUAT NAIK</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">DIREKTORI <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -58,12 +57,15 @@
                   <li><a href="/single-project">PROJEK</a></li>
                 </ul>
               </li>
+              <li><a href="/upload">MUAT NAIK</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="text-transform:uppercase">
-                  {{ Auth::user()->name }} 
+                <a style="text-transform:uppercase" class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ old('name', auth()->user()->name) }}</span>
+                  <img class="img-profile rounded-circle" width="25" height="25" src="storage/profile_img/{{ old('name', auth()->user()->avatar) }}">
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                  <li><a href="/profile">PROFIL</a></li>
                   <li><a href="#logoutModal" data-toggle="modal">LOG KELUAR</a></li>
                 </ul>
               </li>
@@ -73,3 +75,4 @@
       <!--/.nav-collapse -->
     </div>
   </div>
+

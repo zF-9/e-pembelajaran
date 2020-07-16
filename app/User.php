@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     public function Author() {
-        return $this->hasOne(Author::class);
+        //return $this->hasOne(Author::class);
         return $this->hasMany(Posts::class); 
         //re-evaluate syntax yang ini
     }

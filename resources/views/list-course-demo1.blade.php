@@ -27,7 +27,7 @@
 
       <!--<div class="center">-->
 
-                <div class="card col-lg-4 bit-offset">
+                <div class="card col-lg-4 bit-offset" style="padding-left:0">
                 <div class="additional">
                     <div class="user-card">
                     <div class="level center">
@@ -134,7 +134,7 @@
                 </div>
                 </div>
 
-                <div class="card green col-lg-4 bit-offset">
+                <div class="card green col-lg-12 bit-offset" style="padding-left:0">
                 <div class="additional">
                     <div class="user-card">
                     <div class="level center">
@@ -143,7 +143,8 @@
                     <div class="points center">
                         5,312 Points
                     </div>
-                    <svg width="110" height="110" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" class="center">
+                    <img src="storage/profile_img/{{ auth()->user()-> avatar }}" style="width:100px; height:100px; border-radius:50%; margin-left:24px;margin-top:64px">
+                    <!--<svg width="110" height="110" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" class="center">
                         <title id="title">Teacher</title>
                         <desc id="desc">Cartoon of a Caucasian woman smiling, and wearing black glasses and a purple shirt with white collar drawn by Alvaro Montoro.</desc>
                         <style>
@@ -198,10 +199,10 @@
                             <path stroke="#daa37f" stroke-width="1" class="skin hand" id="hand-right" d="M 199,270 C 204,263 190,243 187,246 185,247 184,248 189,255 178,243 174,238 171,240 168,243 178,254 181,257 178,254 168,241 164,244 161,247 175,261 177,263 173,258 166,251 164,253 161,256 180,287 191,278"/> 
                         </g>
                         </g>
-                    </svg>
+                    </svg>-->
                     </div>
                     <div class="more-info">
-                    <h1>Jane Doe</h1>
+                    <h1>{{ auth()->user()->name }}</h1>
                     <div class="coords">
                         <span>Group Name</span>
                         <span>Joined January 2019</span>
@@ -235,14 +236,88 @@
                     </div>
                 </div>
                 <div class="general">
-                    <h1>Jane Doe</h1>
+                    <h1>{{ auth()->user()->name }}</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
                     <span class="more">Mouse over the card for more info</span>
                 </div>
                 </div>
 
             <!--</div>-->
-    
+
+            <div class="card">
+  <div class="content">
+    <div class="post main">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+      <div class="detail"></div>
+      <div class="details"></div>
+      <div class="details"></div>
+    </div>
+    <div class="post sec">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+    </div>
+    <div class="post sec">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+    </div>
+    <div class="post ter">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+    </div>
+    <div class="post ter">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+    </div>
+    <div class="post ter">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+    </div>
+    <div class="post ter">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+    </div>
+    <div class="post ter">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+    </div>
+    <div class="post ter">
+      <div class="preview"></div>
+      <div class="counter"></div>
+      <div class="detail"></div>
+    </div>
+  </div>
+  <div class="fabs">
+    <div class="fab"></div>
+    <i class="avatar zmdi zmdi-account"></i>
+  </div>
+  <div class="user">
+    <div class="socials">
+      <div class="social"><i class="zmdi zmdi-twitter"></i></div>
+      <div class="social"><i class="zmdi zmdi-github"></i></div>
+      <div class="social"><i class="zmdi zmdi-google-plus"></i></div>
+      <div class="social"><i class="zmdi zmdi-codepen"></i></div>
+    </div>
+    <div class="profiles">
+      <div class="profile"><span>51</span>Upvoted</div>
+      <div class="profile"><span>9</span>Created</div>
+      <div class="profile"><span>9</span>Showcased</div>
+      <div class="profile"><span>1</span>Collections</div>
+      <div class="profile"><span>2</span>Followers</div>
+      <div class="profile"><span>5</span>Following</div>
+    </div>
+  </div>
+</div>
+ 
+
       </div>
     </div>
   </div>

@@ -98,3 +98,6 @@
 
 </div>
 @endsection
+@push('scripts')
+   <script src="{{asset('js/log-reg.js')}}"></script>
+@endpush
