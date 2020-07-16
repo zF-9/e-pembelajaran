@@ -61,7 +61,7 @@
               <li class="dropdown">
                 <a style="text-transform:uppercase" class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ old('name', auth()->user()->name) }}</span>
-                  <img class="img-profile rounded-circle" width="25" height="25" src="storage/profile_img/{{ old('name', auth()->user()->avatar) }}">
+                  <img class="img-profile rounded-circle" style="border-radius:50%" width="25" height="25" src="storage/profile_img/{{ old('name', auth()->user()->avatar) }}">
                   <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">

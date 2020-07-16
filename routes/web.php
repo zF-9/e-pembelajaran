@@ -70,6 +70,7 @@ Route::get('/profile-card', function() {
 });
 
 Route::post('/updateAvatar', 'AuthorController@update_avatar');
+Route::post('/updateProfile', 'AuthorController@update_profile');
 
 
 Auth::routes();

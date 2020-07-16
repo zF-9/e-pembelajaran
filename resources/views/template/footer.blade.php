@@ -88,9 +88,6 @@
           <input name="dept" placeholder="Kementerian/Jabatan/Agensi" type="text" tabindex="4" required>
         </fieldset>
         <fieldset>
-          <input name="" placeholder="alamat" type="url" tabindex="4" required>
-        </fieldset>
-        <fieldset>
           <textarea name="address" placeholder="Alamat" tabindex="5" required></textarea>
         </fieldset>
         <fieldset>
