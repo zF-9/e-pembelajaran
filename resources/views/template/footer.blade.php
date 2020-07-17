@@ -71,10 +71,10 @@
 
   <!-- Edit Profile Modal -->
     <div class="container modal fade" id="EditModal">  
-      <form id="contact" action="" method="post">
+      <form id="edit.profile" action="/updateProfile" method="post">
       {{ csrf_field() }}
-        <h3>Kemas Kini Maklumat Peribadi</h3>
-        <h4>Contact us for custom quote</h4>
+        <h3>Maklumat Peribadi</h3>
+        <h4>Kemas Kini Maklumat Pegawai</h4>
         <fieldset>
           <input name="fullname" placeholder="Nama Penuh" type="text" tabindex="1" required autofocus>
         </fieldset>
@@ -82,7 +82,10 @@
           <input name="email" placeholder="Emel" type="email" tabindex="2" required>
         </fieldset>
         <fieldset>
-          <input name="gred" placeholder="Jawatan & Gred" type="text" tabindex="3" required>
+          <input name="position" placeholder="Jawatan" type="text" tabindex="3" required>
+        </fieldset>
+        <fieldset>
+          <input name="gred" placeholder="Gred" type="text" tabindex="3" required>
         </fieldset>
         <fieldset>
           <input name="dept" placeholder="Kementerian/Jabatan/Agensi" type="text" tabindex="4" required>
@@ -117,10 +120,16 @@
   <!-- / copyrights -->
 
   <script type="text/javascript">
-      $('.date').datepicker({  
+      /*$('.date').datepicker({  
         format: 'dd-mm-yyyy',
         autoclose: true,
-      });  
+      }); */ 
+
+  $('.dateselect').datepicker({
+    format: 'mm/dd/yyyy',
+    autoclose: true,
+    // startDate: '-3d'
+  });
   </script> 
 
   <!-- JavaScript Libraries -->

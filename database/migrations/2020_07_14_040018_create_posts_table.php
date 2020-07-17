@@ -17,7 +17,8 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('date_publish');
-            $table->string('date_course');
+            $table->string('date_start');
+            $table->string('date_end');
             $table->string('category');
             $table->string('location');
             $table->string('organizer');

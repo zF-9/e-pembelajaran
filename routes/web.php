@@ -61,17 +61,25 @@ Route::get('/upload', function() {
     return view('upload-paperwork');
 });
 
-Route::get('/profile', function() {
+/*Route::get('/profile', function() {
     return view('profile-demo-1');
-});
+});*/
+Route::get('/profile', 'AuthorController@profile_page');
 
 Route::get('/profile-card', function() {
     return view('profile-card');
-});
+});         
 
 Route::post('/updateAvatar', 'AuthorController@update_avatar');
 Route::post('/updateProfile', 'AuthorController@update_profile');
+Route::post('/uploadPost', 'AuthorController@upload_post');
 
+Route::get('/test_fx', function() { 
+    $ldate = date('Y-m-d H:i:s');
+    dd($ldate);
+});
+
+Route::get('/profile_fx', 'AuthorController@paperwork_tiles');
 
 Auth::routes();
 

@@ -75,6 +75,7 @@
     }
   
   .news-card__text-wrapper {
+      width: 100%;
       position: absolute;
       bottom: 0rem;
       padding: 1rem;

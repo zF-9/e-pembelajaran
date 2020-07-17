@@ -18,45 +18,43 @@ class AuthorController extends Controller
     public function upload_post() {
         $new_post = new Post;
 
-        $new_post->date_course = request('');
+        $Todate = date('Y-m-d H:i:s');
+
+        $new_post->date_publish = $Todate; 
+        $new_post->date_start = request('date_course_start');
+        $new_post->date_end = request('date_course_end');
         $new_post->category = request('category');
         $new_post->location = request('location');
         $new_post->organizer = request('location');
         $new_post->paperwork_title = request('pw_name');
-        $new_post->paperwork_file = request('pw_upload');
+        $new_post->paperwork_file = request()->file('pw_upload')->store('public/paperwork');
         $new_post->paperwork_desc = request('pw_desc');
         $new_post->note_title = request('note_name');
-        $new_post->note_file = request('note_upload');
+        $new_post->note_file = request()->file('note_upload')->store('public/notes');
         $new_post->note_desc = request('note_desc');
         $new_post->gallery_title = request('gallery_name');
-        $new_post->gallery_file = request('gallery_upload');
+        $new_post->gallery_file = request()->file('gallery_upload')->store('public/galleries');
         $new_post->gallery_desc = request('gallery_desc');
         $new_post->user_id = auth()->user()->id;
         
         $new_post->save();
 
-        return Redirect()->route('/');
+        //return Redirect()->route('/');
+        return Redirect::back();
     }
 
     public function update_profile() {
         $sessions = auth()->user()->id;
-        //$edit_author = User::where($sessions, '=', 'id');
 
         User::where('id', '=', $sessions)->update([ 
-            'jawatan'=>request(''),
-            'gred'=>request(''),
-            'agensi'=>request(''),
-            'alamat'=>request(''),
+            'name'=>request('fullname'),
+            'email'=>request('email'),
+            'jawatan'=>request('position'),
+            'gred'=>request('gred'),
+            'agensi'=>request('dept'),
+            'alamat'=>request('address'),
         ]);
-
-        /*$edit_author->jawatan = request('');
-        $edit_author->gred = request('');
-        $edit_author->agensi = request('');
-        $edit_author->alamat = request('');
-        $edit_author->user_id = auth()->user()->id;
-
-        $edit_author->save();*/
-
+        return Redirect::back();
     }
 
     public function update_avatar(Request $request){
@@ -68,12 +66,22 @@ class AuthorController extends Controller
             $path = public_path('storage/profile_img/' . $filename );
             Image::make($avatar)->resize(300, 300)->save( $path );
 
-
             $user = Auth::User();
             $user->avatar = $filename;
-            $user->update(); //save()
+            $user->update(); 
         }
         return Redirect::back();
+    }
+
+    public function profile_page() {
+        $sessions = auth()->user()->id;
+        $personal_post = Post::where('user_id', '=', $sessions)->get();
+        return view('profile-page', ['post'=>$personal_post]);
+    }
+
+    public function paperwork_tiles() {
+        $all_post = Post::all();
+        dd($all_post);
     }
 
 }
