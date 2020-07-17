@@ -41,13 +41,11 @@ Route::get('/single-post', function() {
     return view('single-post');
 });
 
-Route::get('/list-course', function() {
-    return view('list-course-demo1');
-});
+Route::get('/list-course', 'AuthorController@paperwork_tiles');
 
-Route::get('/demo-log', function() {
+/*Route::get('/demo-log', function() {
     return view('auth/login-demo');
-})->name('log-reg');
+})->name('log-reg');*/
 
 Route::get('/blog', function() {
     return view('blog');
@@ -64,22 +62,23 @@ Route::get('/upload', function() {
 /*Route::get('/profile', function() {
     return view('profile-demo-1');
 });*/
+
 Route::get('/profile', 'AuthorController@profile_page');
 
-Route::get('/profile-card', function() {
+/*Route::get('/profile-card', function() {
     return view('profile-card');
-});         
+});*/        
 
 Route::post('/updateAvatar', 'AuthorController@update_avatar');
 Route::post('/updateProfile', 'AuthorController@update_profile');
 Route::post('/uploadPost', 'AuthorController@upload_post');
 
-Route::get('/test_fx', function() { 
+/*Route::get('/test_fx', function() { 
     $ldate = date('Y-m-d H:i:s');
     dd($ldate);
-});
+});*/
 
-Route::get('/profile_fx', 'AuthorController@paperwork_tiles');
+//Route::get('/profile_fx', 'AuthorController@paperwork_tiles');
 
 Auth::routes();
 

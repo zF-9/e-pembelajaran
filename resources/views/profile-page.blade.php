@@ -97,9 +97,9 @@
 <div class="container mtb">
     <div class="row">
 
-    <h1>Senarai Kertas Kerja</h1>
+    <h1 style="text-align: center">Senarai Kertas Kerja</h1>
     <div class="content-wrapper">
-   @if($post === null)
+   @if($post->isEmpty())
    <div class="news-card">
             <a href="#" class="news-card__card-link"></a>
             <img src="https://images.pexels.com/photos/631954/pexels-photo-631954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
@@ -142,14 +142,14 @@
       @foreach($post as $key => $data)
          <div class="news-card">
             <a href="#" class="news-card__card-link"></a>
-            <img src="/storage/{{$data->gallery_file}}" alt="" class="news-card__image">
+            <img src="storage/{{$data->gallery_file}}" alt="" class="news-card__image">
             <!-- https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260 -->
             <div class="news-card__text-wrapper">
                <h2 class="news-card__title">{{ $data->paperwork_title }}</h2>
                <div class="news-card__post-date">{{ $data->date_publish }}</div>
                <div class="news-card__details-wrapper">
                <p class="news-card__excerpt">{{ $data->paperwork_desc }}</p>
-               <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+               <a href="#" class="news-card__read-more">Lanjut<i class="fas fa-long-arrow-alt-right"></i></a>
                </div>
             </div>
          </div>

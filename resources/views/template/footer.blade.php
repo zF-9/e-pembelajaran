@@ -71,7 +71,7 @@
 
   <!-- Edit Profile Modal -->
     <div class="container modal fade" id="EditModal">  
-      <form id="edit.profile" action="/updateProfile" method="post">
+      <form id="contact" action="/updateProfile" method="post">
       {{ csrf_field() }}
         <h3>Maklumat Peribadi</h3>
         <h4>Kemas Kini Maklumat Pegawai</h4>
@@ -96,7 +96,7 @@
         <fieldset>
           <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Simpan</button>
         </fieldset>
-        <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>
+        <!--<p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a></p>-->
       </form>
     </div>
  <!-- Edit Profile Modal -->

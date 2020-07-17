@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\File;
 
 class AuthorController extends Controller
 {
-    public function upload_post() {
+    public function upload_post(Request $request) {
         $new_post = new Post;
 
         $Todate = date('Y-m-d H:i:s');
@@ -26,15 +26,31 @@ class AuthorController extends Controller
         $new_post->category = request('category');
         $new_post->location = request('location');
         $new_post->organizer = request('location');
+
+        //paperwork
         $new_post->paperwork_title = request('pw_name');
-        $new_post->paperwork_file = request()->file('pw_upload')->store('public/paperwork');
         $new_post->paperwork_desc = request('pw_desc');
+        $file = $request->file('pw_upload');
+        $originalname = $file->getClientOriginalName();
+        $new_post->paperwork_file = $file->storeAs('public/paperwork', $originalname);
+        //$new_post->paperwork_file = request()->file('pw_upload')->store('public/paperwork');
+
+        //Notes
         $new_post->note_title = request('note_name');
-        $new_post->note_file = request()->file('note_upload')->store('public/notes');
         $new_post->note_desc = request('note_desc');
+        $file = $request->file('note_upload');
+        $originalname = $file->getClientOriginalName();
+        $new_post->note_file = $file->storeAs('public/notes', $originalname);
+        //$new_post->note_file = request()->file('note_upload')->store('public/notes');
+
+        //galleries
         $new_post->gallery_title = request('gallery_name');
-        $new_post->gallery_file = request()->file('gallery_upload')->store('public/galleries');
         $new_post->gallery_desc = request('gallery_desc');
+        $file = $request->file('gallery_upload');
+        $originalname = $file->getClientOriginalName();
+        $new_post->gallery_file = $file->storeAs('public/galleries', $originalname);
+        //$new_post->gallery_file = request()->file('gallery_upload')->store('public/galleries');
+
         $new_post->user_id = auth()->user()->id;
         
         $new_post->save();
@@ -76,12 +92,13 @@ class AuthorController extends Controller
     public function profile_page() {
         $sessions = auth()->user()->id;
         $personal_post = Post::where('user_id', '=', $sessions)->get();
+        //dd($personal_post->pluck('gallery_file'));
         return view('profile-page', ['post'=>$personal_post]);
     }
 
     public function paperwork_tiles() {
         $all_post = Post::all();
-        dd($all_post);
+        return view('list-course-demo2', ['posting'=>$all_post]);
     }
 
 }
