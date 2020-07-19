@@ -69,9 +69,7 @@ Route::get('/profile', 'AuthorController@profile_page');
     return view('profile-card');
 });*/        
 
-Route::post('/updateAvatar', 'AuthorController@update_avatar');
-Route::post('/updateProfile', 'AuthorController@update_profile');
-Route::post('/uploadPost', 'AuthorController@upload_post');
+
 
 /*Route::get('/test_fx', function() { 
     $ldate = date('Y-m-d H:i:s');
@@ -83,3 +81,8 @@ Route::post('/uploadPost', 'AuthorController@upload_post');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/updateAvatar', 'AuthorController@update_avatar');
+Route::post('/updateProfile', 'AuthorController@update_profile');
+Route::post('/uploadPost', 'AuthorController@upload_post');
+Route::get('/{data}/gallery', 'AuthorController@gallery_tiles')->name('gallery');
+Route::get('/{post_id}', 'AuthorController@single_article')->name('article');

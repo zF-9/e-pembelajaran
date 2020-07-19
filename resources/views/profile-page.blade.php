@@ -21,7 +21,7 @@
                <div class="col-md-4 col-xs-12">
                   <div class="card profile-card-3">
                      <div class="background-block">
-                           <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="profile-sample1" class="background"/>
+                           <img src="images/pexels-photo-459225.jpeg" alt="profile-sample1" class="background"/>
                      </div>
                      <div class="profile-thumb-block">
                            <img src="storage/profile_img/{{ old('name', auth()->user()->avatar)}}" alt="profile-image" class="profile"/>
@@ -141,15 +141,21 @@
    @else 
       @foreach($post as $key => $data)
          <div class="news-card">
-            <a href="#" class="news-card__card-link"></a>
-            <img src="storage/{{$data->gallery_file}}" alt="" class="news-card__image">
+            <a href="{{ route('article', ['post_id' => $data->id]) }}" class="news-card__card-link"></a>
+            @php $images = json_decode($data->filename,true); @endphp
+            @if(is_array($images) && !empty($images))
+            @foreach($images as $img)
+               <img src="{{ url('storage/galleries/'. $img) }}" alt="" class="news-card__image">
+            @endforeach
+            @endif
+
             <!-- https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260 -->
             <div class="news-card__text-wrapper">
                <h2 class="news-card__title">{{ $data->paperwork_title }}</h2>
                <div class="news-card__post-date">{{ $data->date_publish }}</div>
                <div class="news-card__details-wrapper">
                <p class="news-card__excerpt">{{ $data->paperwork_desc }}</p>
-               <a href="#" class="news-card__read-more">Lanjut<i class="fas fa-long-arrow-alt-right"></i></a>
+               <a href="{{ route('article', ['post_id' => $data->id]) }}" class="news-card__read-more">Lanjut<i class="fas fa-long-arrow-alt-right"></i></a>
                </div>
             </div>
          </div>

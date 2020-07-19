@@ -29,7 +29,7 @@ class CreatePostsTable extends Migration
             $table->string('note_file');
             $table->string('note_desc');
             $table->string('gallery_title');
-            $table->string('gallery_file');
+            //$table->string('gallery_file');
             $table->string('gallery_desc');
             $table->unsignedBigInteger('user_id')->index();
         });

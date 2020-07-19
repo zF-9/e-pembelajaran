@@ -37,10 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Author() {
-        //return $this->hasOne(Author::class);
-        return $this->hasMany(Posts::class); 
-        //re-evaluate syntax yang ini
+    public function post() {
+        return $this->hasMany(Post::class); 
     }
 
 }

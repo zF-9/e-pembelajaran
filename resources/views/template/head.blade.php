@@ -37,9 +37,11 @@
   <!--<link href="{{asset('css/player-user-card.css')}}" rel="stylesheet">  -->
   <!--<link href="{{asset('css/profile.css')}}" rel="stylesheet"> -->
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+  <link href="{{asset('css/bootstrap-datepicker.css')}}" rel="stylesheet">
+  <script src="{{asset('js/jquery-1.9.1.js')}}"></script>
+  <script src="{{asset('js/bootstrap-datepicker.js')}}"></script>
+  <!-- remove cdn(s) - load file locally -->
+
   <!-- =======================================================
     Template Name: Solid
     Template URL: https://templatemag.com/solid-bootstrap-business-template/
