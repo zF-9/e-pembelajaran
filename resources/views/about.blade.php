@@ -33,7 +33,7 @@
         <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         <p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the
           undoubtable source.</p>
-        <p><br/><a href="contact.html" class="btn btn-theme">Hubungi Kami</a></p>
+        <p><br/><a href="/contact" class="btn btn-theme">Hubungi Kami</a></p>
       </div>
     </div>
   </div>

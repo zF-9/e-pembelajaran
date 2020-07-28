@@ -34,7 +34,6 @@ class AuthorController extends Controller
         $file = $request->file('pw_upload');
         $originalname = $file->getClientOriginalName();
         $new_post->paperwork_file = $file->storeAs('public/paperwork', $originalname);
-        //$new_post->paperwork_file = request()->file('pw_upload')->store('public/paperwork');
 
         //Notes
         $new_post->note_title = request('note_name');
@@ -42,42 +41,34 @@ class AuthorController extends Controller
         $file = $request->file('note_upload');
         $originalname = $file->getClientOriginalName();
         $new_post->note_file = $file->storeAs('public/notes', $originalname);
-        //$new_post->note_file = request()->file('note_upload')->store('public/notes');
 
         //galleries
         $new_post->gallery_title = request('gallery_name');
         $new_post->gallery_desc = request('gallery_desc');
-        //$file = $request->file('gallery_upload');
-        //$originalname = $file->getClientOriginalName();
-        //$new_post->gallery_file = $file->storeAs('public/galleries', $originalname);
-        //$new_post->gallery_file = request()->file('gallery_upload')->store('public/galleries');
-
         $new_post->user_id = auth()->user()->id;
         $new_post->save();
 
+        //multiple file upload on galleries table
         $this->validate($request, [
             'filename' => 'required',
             'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         
-        if($request->hasfile('filename')) //filename refers to input name that took the file
+        if($request->hasfile('filename')) 
         {
             foreach($request->file('filename') as $image)
             {
                 $name=$image->getClientOriginalName();
-                $image->move(public_path().'/storage/galleries/', $name);  // path: '/storage/galleries/'
+                $image->move(public_path().'/storage/galleries/', $name);  
                 $data[] = $name;  
             }
         }
-        $gallery = new Gallery(); //Form() refers to model name signifies table migration
+        $gallery = new Gallery(); 
         $gallery->filename=json_encode($data);
         $gallery->post_id = $new_post->id;
-        //dd($new_post->id);
         
         $gallery->save();        
         
-
-        //return Redirect()->route('/');
         return Redirect::back();
     }
 
@@ -117,19 +108,6 @@ class AuthorController extends Controller
                         ->join('galleries','galleries.post_id','posts.id')
                         ->get();
 
-        //dd($personal_post->pluck('gallery_file'));
-        //dd($personal_post);
-        //dd($personal_post[0]->filename);
-
-        /*foreach ($personal_post as $pics){
-            $images = json_decode($pics->filename,true); 
-            if(is_array($images) && !empty($images))
-                foreach($images as $img){
-                    $card_bg = $img;
-                }
-        }*/
-        //dd($imgs);
-
         return view('profile-page', ['post'=>$personal_post, ]);
     }
 
@@ -141,27 +119,43 @@ class AuthorController extends Controller
     }
 
     public function single_article($post_id) {
-        // fetch using parameter (id) - join post and user table
         $post_d = DB::table('posts')->where('id', $post_id)->first();
         $post_array = collect($post_d);
         $x = $post_array->get('user_id');
         $user_d = DB::table('users')->where('id', $x)->first();
 
         $gallery = DB::table('galleries')->where('post_id', $post_id)->first();
-        //$data = collect($post_d->merge($user_d));
-        //$x = $post_d->get('user_id');
-        //dd($data);
-        //dd($post_d);
-
-        //collect random new entry 
-
         return view('post-single', ['post_data'=>$post_d, 'user_data'=>$user_d, 'gallery'=>$gallery]);
     }
 
     public function gallery_tiles($post_id) {
         $tiles = DB::table('galleries')->where('post_id', $post_id)->get();
-        //dd($tiles);
         return view('gallery-demo', ['pics' => $tiles]);
+    }
+
+    public function categories() {
+        $ctg = DB::table('posts')->join('galleries','galleries.post_id','posts.id')->get();
+        //->groupBy('category')); // {{ }}
+
+        $ctg_main = collect($ctg->groupBy('category'));
+        $ctg_side = $ctg->groupBy('category'); // in blade pass foreach {{ x }} {{ $ctg_side->count() }}
+
+        //$randomizor = array_random($ctg_main, 1);
+        //$random_post = Post::orderBy(\DB::raw('RAND()'))->get();
+
+        //dd($ctg_side);
+        /*foreach($ctg_side as $key => $ctg_data){
+            //dd($ctg_data);
+            foreach($ctg_data as $key => $x){
+                dd($x->filename);
+            }
+        }*/
+
+        //return $ctg_side;
+        $latest_post = collect($ctg);
+        //dd($latest_post[0]->filename);
+
+        return view('categories', ['content'=>$ctg_main, 'side_content'=>$ctg_side, 'latest'=>$latest_post]);
     }
 
 }

@@ -27,7 +27,7 @@
 
     @foreach($posting as $key => $data)
          <div class="news-card">
-            <a href="#" class="news-card__card-link"></a>
+            <a href="{{ route('article', ['post_id' => $data->id]) }}" class="news-card__card-link"></a>
             @php $images = json_decode($data->filename,true); @endphp
             @if(is_array($images) && !empty($images))
             @foreach($images as $img)
@@ -40,7 +40,7 @@
                <div class="news-card__post-date">{{ $data->date_publish }}</div>
                <div class="news-card__details-wrapper">
                <p class="news-card__excerpt">{{ $data->paperwork_desc }}</p>
-               <a href="#" class="news-card__read-more">Lanjut<i class="fas fa-long-arrow-alt-right"></i></a>
+               <a href="{{ route('article', ['post_id' => $data->id]) }}" class="news-card__read-more">Lanjut<i class="fas fa-long-arrow-alt-right"></i></a>
                </div>
             </div>
          </div>

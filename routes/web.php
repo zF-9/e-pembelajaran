@@ -80,9 +80,11 @@ Route::get('/profile', 'AuthorController@profile_page');
 
 Auth::routes();
 
+Route::get('/categories', 'AuthorController@categories')->name('category');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/updateAvatar', 'AuthorController@update_avatar');
 Route::post('/updateProfile', 'AuthorController@update_profile');
 Route::post('/uploadPost', 'AuthorController@upload_post');
 Route::get('/{data}/gallery', 'AuthorController@gallery_tiles')->name('gallery');
 Route::get('/{post_id}', 'AuthorController@single_article')->name('article');
+

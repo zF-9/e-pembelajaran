@@ -50,7 +50,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">DIREKTORI <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/blog">KATEGORI</a></li>
+                  <li><a href="/categories">KATEGORI</a></li>
                   <li><a href="/single-post">ARTIKEL</a></li>
                   <li><a href="/list-course">SENARAI KURSUS</a></li>
                   <li><a href="/portfolio">GALERI</a></li>

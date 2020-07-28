@@ -24,14 +24,14 @@
       <div class="col-lg-8">
         <h4>Muat Naik Pembentangan Kertas Kerja</h4>
         <div class="hline"></div>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>-->
         <form class="contact-form" role="form" action="/uploadPost" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <!-- section soalan -->
         <div class="form-group">
 
-        <hr>
-            <!--<label>
+         <hr>
+           <!--<label>
               <input type="text" class="dateselect" required="required"/>
               <span>Date</span>
             </label>-->
@@ -94,7 +94,7 @@
              </div>               
 
              <div class="form-group">
-              <textarea class="form-control" name="pw_desc" id="contact-message" placeholder="Penerangan Pendek tentang Kertas Kerja" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
+              <textarea class="form-control" name="pw_desc" id="" placeholder="Penerangan Pendek tentang Kertas Kerja" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
               <!--<div class="validate"></div>-->
             </div>             
         </div>
@@ -139,8 +139,9 @@
              </div> --> 
 
              <label class="form-control-label" for="gallery_upload">Muat Naik Gambar-Gambar Kursus</label>
+             <p style="color:red">Sila muat naik gambar resolusi tinggi untuk galeri</p>
              <div class="input-group control-group increment" >
-                <input type="file" name="filename[]" class="form-control">
+                <input type="file" name="filename[]" class="form-control" style="color:black">
                 <div class="input-group-btn"> 
                   <button style="height:50px;margin-bottom: 12px" class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Tambah</button>
                 </div>
