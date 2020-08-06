@@ -13,6 +13,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\ImageManagerStatic;
 
 class AuthorController extends Controller
 {
@@ -26,7 +27,7 @@ class AuthorController extends Controller
         $new_post->date_end = request('date_course_end');
         $new_post->category = request('category');
         $new_post->location = request('location');
-        $new_post->organizer = request('location');
+        $new_post->organizer = request('organizer');
 
         //paperwork
         $new_post->paperwork_title = request('pw_name');
@@ -58,18 +59,21 @@ class AuthorController extends Controller
         {
             foreach($request->file('filename') as $image)
             {
-                $name=$image->getClientOriginalName();
-                $image->move(public_path().'/storage/galleries/', $name);  
-                $data[] = $name;  
+                $image_r = Image::make($image)->resize(600, 450);              
+
+                $name_file = $image->getClientOriginalName();
+                $image->move(public_path().'/storage/galleries/', $name_file);  
+                $data[] = $name_file;  
             }
         }
+
         $gallery = new Gallery(); 
         $gallery->filename=json_encode($data);
         $gallery->post_id = $new_post->id;
         
-        $gallery->save();        
-        
-        return Redirect::back();
+        $gallery->save();      
+        //dd([$gallery,$new_post]);
+        return Redirect()->route('category');
     }
 
     public function update_profile() {
@@ -113,9 +117,13 @@ class AuthorController extends Controller
 
     public function paperwork_tiles() {
         $all_post = DB::table('posts')->join('galleries','galleries.post_id','posts.id')->get();
-        //collect(Post::all()->join('galleries','galleries.post_id','posts.id'));
-        //dd($all_post);
         return view('list-course', ['posting'=>$all_post]);
+    }
+
+    public function post_by_categories($niche) {
+        $niche_post = DB::table('posts')->where('category', $niche)->join('galleries','galleries.post_id','posts.id')->get();
+
+        return view('list-course-by-category', ['postings'=>$niche_post]);
     }
 
     public function single_article($post_id) {
@@ -124,36 +132,25 @@ class AuthorController extends Controller
         $x = $post_array->get('user_id');
         $user_d = DB::table('users')->where('id', $x)->first();
 
-        $gallery = DB::table('galleries')->where('post_id', $post_id)->first();
-        return view('post-single', ['post_data'=>$post_d, 'user_data'=>$user_d, 'gallery'=>$gallery]);
+        $img_tiles = DB::table('galleries')->where('post_id', $post_id)->first();
+        return view('post-single', ['post_data'=>$post_d, 'user_data'=>$user_d, 'image_tiles'=>$img_tiles]);
     }
+
 
     public function gallery_tiles($post_id) {
         $tiles = DB::table('galleries')->where('post_id', $post_id)->get();
-        return view('gallery-demo', ['pics' => $tiles]);
+        $course_name = Post::where('id', $post_id)->first();
+
+        return view('gallery', ['pics' => $tiles, 'course' => $course_name]);
     }
 
     public function categories() {
         $ctg = DB::table('posts')->join('galleries','galleries.post_id','posts.id')->get();
-        //->groupBy('category')); // {{ }}
 
         $ctg_main = collect($ctg->groupBy('category'));
         $ctg_side = $ctg->groupBy('category'); // in blade pass foreach {{ x }} {{ $ctg_side->count() }}
 
-        //$randomizor = array_random($ctg_main, 1);
-        //$random_post = Post::orderBy(\DB::raw('RAND()'))->get();
-
-        //dd($ctg_side);
-        /*foreach($ctg_side as $key => $ctg_data){
-            //dd($ctg_data);
-            foreach($ctg_data as $key => $x){
-                dd($x->filename);
-            }
-        }*/
-
-        //return $ctg_side;
         $latest_post = collect($ctg);
-        //dd($latest_post[0]->filename);
 
         return view('categories', ['content'=>$ctg_main, 'side_content'=>$ctg_side, 'latest'=>$latest_post]);
     }

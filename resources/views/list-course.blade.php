@@ -46,10 +46,10 @@
          </div>
     @endforeach
 
-  <div class="news-card">
+  <!--<div class="news-card">
     <a href="#" class="news-card__card-link"></a>
     <img src="images/post03.jpg" alt="" class="news-card__image">
-    <!-- https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260 -->
+     https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260 
     <div class="news-card__text-wrapper">
       <h2 class="news-card__title">Excel</h2>
       <div class="news-card__post-date">Jun 24, 2020</div>
@@ -123,7 +123,7 @@
         <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
       </div>
     </div>
-  </div>
+  </div>-->
 
 </div>
 

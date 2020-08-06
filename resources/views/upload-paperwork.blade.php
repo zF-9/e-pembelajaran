@@ -25,7 +25,7 @@
         <h4>Muat Naik Pembentangan Kertas Kerja</h4>
         <div class="hline"></div>
         <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>-->
-        <form class="contact-form" role="form" action="/uploadPost" method="POST" enctype="multipart/form-data">
+        <form class="contact-form" role="form" action="/uploadPost" method="POST" enctype="multipart/form-data"> 
         {{ csrf_field() }}
         <!-- section soalan -->
         <div class="form-group">

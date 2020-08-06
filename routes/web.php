@@ -21,9 +21,7 @@ Route::get('/portfolio', function() {
     return view('portfolio');
 });
 
-Route::get('/home-page', function() {
-    return view('index-new');
-})->name('homepage');
+
 
 Route::get('/about', function() {
     return view('about');
@@ -41,7 +39,7 @@ Route::get('/single-post', function() {
     return view('single-post');
 });
 
-Route::get('/list-course', 'AuthorController@paperwork_tiles');
+
 
 /*Route::get('/demo-log', function() {
     return view('auth/login-demo');
@@ -63,7 +61,7 @@ Route::get('/upload', function() {
     return view('profile-demo-1');
 });*/
 
-Route::get('/profile', 'AuthorController@profile_page');
+
 
 /*Route::get('/profile-card', function() {
     return view('profile-card');
@@ -80,6 +78,10 @@ Route::get('/profile', 'AuthorController@profile_page');
 
 Auth::routes();
 
+Route::get('/home-page', 'HomeController@home_screen')->name('homepage');
+Route::get('/profile', 'AuthorController@profile_page')->name('profilepage');
+Route::get('/list-course', 'AuthorController@paperwork_tiles');
+Route::get('/list-course-by-category/{category}', 'AuthorController@post_by_categories');
 Route::get('/categories', 'AuthorController@categories')->name('category');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/updateAvatar', 'AuthorController@update_avatar');
@@ -87,4 +89,3 @@ Route::post('/updateProfile', 'AuthorController@update_profile');
 Route::post('/uploadPost', 'AuthorController@upload_post');
 Route::get('/{data}/gallery', 'AuthorController@gallery_tiles')->name('gallery');
 Route::get('/{post_id}', 'AuthorController@single_article')->name('article');
-

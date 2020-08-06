@@ -33,7 +33,7 @@
                 @endif
             @endif
           @endforeach
-          <a href="/list-course"><h3 class="ctitle">{{ $key_main }}</h3></a>
+          <a href="/list-course-by-category/{{ $key_main }}"><h3 class="ctitle">{{ $key_main }}</h3></a>
           <p>
             <csmall>Posted: </csmall> |
             <csmall2>By: </csmall2>

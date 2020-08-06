@@ -61,6 +61,31 @@
 
     <div class="portfolio-centered">
       <div class="recentitems portfolio">
+
+      @foreach($previews as $key => $datax)
+      @php $images = json_decode($datax->filename,true); @endphp
+          @if(is_array($images) && !empty($images))
+            @foreach($images as $img)
+            <div class="portfolio-item graphic-design">
+              <div class="he-wrap tpl6">
+                <img src="{{ url('/storage/galleries/'. $img) }}" alt="">
+                <div class="he-view">
+                  <div class="bg a0" data-animate="fadeIn">
+                    <h3 class="a1" data-animate="fadeInDown">{{ $datax->paperwork_title }}</h3>
+                    <a data-rel="prettyPhoto" href="{{ url('/storage/galleries/'. $img) }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                    <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
+                  </div>
+                  <!-- he bg -->
+                </div>
+                <!-- he view -->
+              </div>
+              <!-- he wrap -->
+            </div>
+            <!-- end col-12 -->
+            @endforeach
+          @endif
+        @endforeach
+
         <div class="portfolio-item graphic-design">
           <div class="he-wrap tpl6">
             <img src="images/portfolio/portfolio_09.jpg" alt="">

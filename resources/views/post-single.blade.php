@@ -31,16 +31,20 @@
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
+            
             <div class="item active">
               <img src="{{asset('images/portfolio/single01.jpg')}}" alt="">
             </div>
-            <div class="item">
-              <img src="{{asset('images/portfolio/single02.jpg')}}" alt="">
-            </div>
-            <div class="item">
-              <img src="{{asset('images/portfolio/single03.jpg')}}" alt="">
-            </div>
+            @php $imgs = json_decode($image_tiles->filename,true); @endphp  
+            @if(is_array($imgs) && !empty($imgs))
+            @foreach($imgs as $key => $gallery_img)       
+                <div class="item">
+                  <img src="/storage/galleries/{{ $gallery_img }}" alt="">
+                </div>  
+            @endforeach
+            @endif
           </div>
+
         </div>
       </div>
 
@@ -51,11 +55,11 @@
           It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
         <h4>{{ $post_data->paperwork_title }}</h4>
         <p>{{ $post_data->paperwork_desc }}
-            <p><a href="#">[Klik Sini]</a> untuk muat turun kertas kerja.</p>
+            <p><a href="/storage/{{ $post_data->paperwork_file }}">[Klik Sini]</a> untuk muat turun kertas kerja.</p>
         </p>
         <h4>{{ $post_data->note_title }}</h4>
         <p>{{ $post_data->note_desc }} 
-        <p><a href="#">[Klik Sini]</a> untuk muat turun nota & bahan kursus</p></p>        
+        <p><a href="/storage/{{ $post_data->note_file }}">[Klik Sini]</a> untuk muat turun nota & bahan kursus</p></p>        
         <h4>{{ $post_data->gallery_title }}</h4>
         <p>{{ $post_data->gallery_desc }}</p>
         <p><a href="{{ route('gallery', ['data' => $post_data->id]) }}">[Klik Sini]</a></p>     
@@ -86,92 +90,28 @@
     <div class="portfolio-centered">
       <h3>Terkini.</h3>
       <div class="recentitems portfolio">
-        <div class="portfolio-item graphic-design">
-          <div class="he-wrap tpl6">
-            <img src="images/portfolio/portfolio_09.jpg" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="images/portfolio/portfolio_09.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-              </div>
-              <!-- he bg -->
-            </div>
-            <!-- he view -->
-          </div>
-          <!-- he wrap -->
-        </div>
-        <!-- end col-12 -->
 
-        <div class="portfolio-item web-design">
-          <div class="he-wrap tpl6">
-            <img src="images/portfolio/portfolio_02.jpg" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
-                <a data-rel="prettyPhoto" href="images/portfolio/portfolio_02.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-              </div>
-              <!-- he bg -->
-            </div>
-            <!-- he view -->
-          </div>
-          <!-- he wrap -->
-        </div>
-        <!-- end col-12 -->
-
-        <div class="portfolio-item graphic-design">
-          <div class="he-wrap tpl6">
-            <img src="images/portfolio/portfolio_03.jpg" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="images/portfolio/portfolio_03.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-              </div>
-              <!-- he bg -->
-            </div>
-            <!-- he view -->
-          </div>
-          <!-- he wrap -->
-        </div>
-        <!-- end col-12 -->
-
-        <div class="portfolio-item graphic-design">
-          <div class="he-wrap tpl6">
-            <img src="images/portfolio/portfolio_04.jpg" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="images/portfolio/portfolio_04.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-              </div>
-              <!-- he bg -->
-            </div>
-            <!-- he view -->
-          </div>
-          <!-- he wrap -->
-        </div>
-        <!-- end col-12 -->
-
-        <div class="portfolio-item graphic-design">
-          <div class="he-wrap tpl6">
-            <img src="images/portfolio/portfolio_05.jpg" alt="">
-            <div class="he-view">
-              <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                <a data-rel="prettyPhoto" href="images/portfolio/portfolio_04.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-              </div>
-              <!-- he bg -->
-            </div>
-            <!-- he view -->
-          </div>
-          <!-- he wrap -->
-        </div>
-        <!-- end col-12 -->
-
-
+        @php $images = json_decode($image_tiles->filename,true); @endphp
+          @if(is_array($images) && !empty($images))
+            @foreach($images as $img)
+            <div class="portfolio-item graphic-design">
+                <div class="he-wrap tpl6">
+                    <img class="gallery" src="{{ url('/storage/galleries/'. $img) }}" alt="">
+                    <div class="he-view">
+                    <div class="bg a0" data-animate="fadeIn">
+                        <h3 class="a1" data-animate="fadeInDown">{{ $post_data->gallery_title }}</h3>
+                        <a data-rel="prettyPhoto" href="{{ url('/storage/galleries/'. $img) }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                        <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
+                    </div>
+                    <!-- he bg -->
+                    </div>
+                    <!-- he view -->
+                </div>
+                <!-- he wrap -->
+                </div>
+                <!-- end col-12 -->
+            @endforeach
+          @endif
       </div>
       <!-- portfolio -->
     </div>
