@@ -46,7 +46,7 @@
                <div class="news-card__post-date">{{ $data->date_publish }}</div>
                <div class="news-card__details-wrapper">
                <p class="news-card__excerpt">{{ $data->paperwork_desc }}</p>
-               <a href="{{ route('article', ['post_id' => $data->id]) }}" class="news-card__read-more">Lanjut<i class="fas fa-long-arrow-alt-right"></i></a>
+               <a href="{{ route('article', ['post_id' => $data->post_id]) }}" class="news-card__read-more">Lanjut<i class="fas fa-long-arrow-alt-right"></i></a>
                </div>
             </div>
          </div>

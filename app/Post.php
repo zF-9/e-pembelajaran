@@ -11,7 +11,7 @@ class Post extends Model
     }
     
     public function gallery() {
-        return $this->hasMany(Gallery::class); 
+        return $this->hasOne(Gallery::class); 
     }
 
 }

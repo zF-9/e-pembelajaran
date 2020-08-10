@@ -32,16 +32,16 @@ class AuthorController extends Controller
         //paperwork
         $new_post->paperwork_title = request('pw_name');
         $new_post->paperwork_desc = request('pw_desc');
-        $file = $request->file('pw_upload');
-        $originalname = $file->getClientOriginalName();
-        $new_post->paperwork_file = $file->storeAs('public/paperwork', $originalname);
+        $file_paperwork = $request->file('pw_upload');
+        $originalname_paper = $file_paperwork->getClientOriginalName();
+        $new_post->paperwork_file = $file_paperwork->storeAs('/storage/paperwork', $originalname_paper);
 
         //Notes
         $new_post->note_title = request('note_name');
         $new_post->note_desc = request('note_desc');
-        $file = $request->file('note_upload');
-        $originalname = $file->getClientOriginalName();
-        $new_post->note_file = $file->storeAs('public/notes', $originalname);
+        $file_note = $request->file('note_upload');
+        $originalname_note = $file_note->getClientOriginalName();
+        $new_post->note_file = $file_note->storeAs('/storage/notes', $originalname_note);
 
         //galleries
         $new_post->gallery_title = request('gallery_name');
@@ -59,16 +59,15 @@ class AuthorController extends Controller
         {
             foreach($request->file('filename') as $image)
             {
-                $image_r = Image::make($image)->resize(600, 450);              
-
-                $name_file = $image->getClientOriginalName();
-                $image->move(public_path().'/storage/galleries/', $name_file);  
-                $data[] = $name_file;  
+                $name_file = $image->getClientOriginalName();               
+                $gallery_path = public_path('/storage/galleries/'. $name_file);  
+                Image::make($image)->resize(700, 500)->save($gallery_path);
+                $data_imgs[] = $name_file;              
             }
         }
 
         $gallery = new Gallery(); 
-        $gallery->filename=json_encode($data);
+        $gallery->filename=json_encode($data_imgs);
         $gallery->post_id = $new_post->id;
         
         $gallery->save();      
@@ -123,6 +122,7 @@ class AuthorController extends Controller
     public function post_by_categories($niche) {
         $niche_post = DB::table('posts')->where('category', $niche)->join('galleries','galleries.post_id','posts.id')->get();
 
+        //dd($niche_post);
         return view('list-course-by-category', ['postings'=>$niche_post]);
     }
 
@@ -132,7 +132,8 @@ class AuthorController extends Controller
         $x = $post_array->get('user_id');
         $user_d = DB::table('users')->where('id', $x)->first();
 
-        $img_tiles = DB::table('galleries')->where('post_id', $post_id)->first();
+        $img_tiles = Gallery::where('post_id', $post_id)->first();
+        //dd($post_id);
         return view('post-single', ['post_data'=>$post_d, 'user_data'=>$user_d, 'image_tiles'=>$img_tiles]);
     }
 
