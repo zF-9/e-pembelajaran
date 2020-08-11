@@ -119,7 +119,7 @@
             <em>Terbitan: {{ $latest_post->date_publish }}</em>
           </li>
         @endforeach
-          <li>
+          <!--<li>
             <a href="#"><img src="images/thumb02.jpg" alt="Popular Post"></a>
             <p><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></p>
             <em>Posted on 03/01/14</em>
@@ -132,7 +132,7 @@
               <a href="#"><img src="images/thumb04.jpg" alt="Popular Post"></a>
               <p><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></p>
               <em>Posted on 05/16/14</em>
-            </li>
+            </li>-->
         </ul>
 
         <div class="spacing"></div>

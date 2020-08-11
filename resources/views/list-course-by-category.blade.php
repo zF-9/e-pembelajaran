@@ -33,7 +33,7 @@
 
     @foreach($postings as $key => $data)
          <div class="news-card">
-            <a href="{{ route('article', ['post_id' => $data->id]) }}" class="news-card__card-link"></a>
+            <a href="{{ route('article', ['post_id' => $data->post_id]) }}" class="news-card__card-link"></a>
             @php $images = json_decode($data->filename,true); @endphp
             @if(is_array($images) && !empty($images))
             @foreach($images as $img)

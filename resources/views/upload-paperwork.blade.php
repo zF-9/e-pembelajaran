@@ -124,44 +124,6 @@
         <hr>
         <!-- section soalan -->        
 
-        <!-- section soalan -->
-        <div class="form-group">
-              <label>Tajuk Galeri Kursus</label>
-              <input type="name" name="gallery_name" class="form-control" id="gallery-name" placeholder="" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
-              <div class="validate"></div>
-
-              <!--<div class="surat-akuan col-sm-12 col-md-6" style="align:center; padding-top: 12px">
-                    <label class="form-control-label" for="gallery_upload">Muat Naik Gambar-Gambar Kursus</label>
-                    <div class="col-sm-9" style="padding-left: 0px;padding-top: 9px">
-                            <input multiple name="gallery_upload" type="file" class="custom-file-inputform-control form-control-alternative" placeholder="" value="" required="" autofocus="">
-                            <span style="margin-left: 15px; width: 480px;" class="custom-file-control"></span>            
-                    </div>
-             </div> --> 
-
-             <label class="form-control-label" for="gallery_upload">Muat Naik Gambar-Gambar Kursus</label>
-             <p style="color:red">Sila muat naik gambar resolusi tinggi untuk galeri</p>
-             <div class="input-group control-group increment" >
-                <input type="file" name="filename[]" class="form-control" style="color:black">
-                <div class="input-group-btn"> 
-                  <button style="height:50px;margin-bottom: 12px" class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Tambah</button>
-                </div>
-              </div>
-              <div class="clone hide">
-                <div class="control-group input-group" style="margin-top:10px">
-                  <input type="file" name="filename[]" class="form-control">
-                  <div class="input-group-btn"> 
-                    <button style="height:50px;margin-bottom: 12px" class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i>Padam</button>
-                  </div>
-                </div>
-              </div>        
-
-             <div class="form-group">
-              <textarea class="form-control" name="gallery_desc" id="contact-message" placeholder="Penerangan Pendek tentang Galeri Gambar Kursus" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
-              <div class="validate"></div>
-            </div>             
-        </div>
-        <hr>
-        <!-- section soalan -->
 
             <!--<div class="loading"></div>
             <div class="error-message"></div>

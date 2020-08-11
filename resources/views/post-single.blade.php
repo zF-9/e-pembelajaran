@@ -27,20 +27,20 @@
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
           </ol>
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
-            
+          @php $imgs = json_decode($image_tiles->filename,true); @endphp  
+          @if(is_array($imgs) && !empty($imgs))
             <div class="item active">
-              <img src="{{asset('images/portfolio/single01.jpg')}}" alt="">
-            </div>
-            @php $imgs = json_decode($image_tiles->filename,true); @endphp  
-            @if(is_array($imgs) && !empty($imgs))
-            @foreach($imgs as $key => $gallery_img)       
-                <div class="item">
-                  <img src="/storage/galleries/{{ $gallery_img }}" alt="">
-                </div>  
+              <img src="/storage/galleries/{{ $imgs[0] }}" alt="">
+            </div>          
+            @foreach($imgs as $key => $gallery_img)     
+                  <div class="item">
+                    <img src="/storage/galleries/{{ $gallery_img }}" alt="">
+                  </div>  
             @endforeach
             @endif
           </div>
@@ -60,8 +60,8 @@
         <h4>{{ $post_data->note_title }}</h4>
         <p>{{ $post_data->note_desc }} 
         <p><a href="/storage/{{ $post_data->note_file }}">[Klik Sini]</a> untuk muat turun nota & bahan kursus</p></p>        
-        <h4>{{ $post_data->gallery_title }}</h4>
-        <p>{{ $post_data->gallery_desc }}</p>
+        <h4>{{ $image_tiles->gallery_title }}</h4>
+        <p>{{ $image_tiles->gallery_desc }}</p>
         <p><a href="{{ route('gallery', ['data' => $post_data->id]) }}">[Klik Sini]</a></p>     
       </div>
 
@@ -99,7 +99,7 @@
                     <img class="gallery" src="{{ url('/storage/galleries/'. $img) }}" alt="">
                     <div class="he-view">
                     <div class="bg a0" data-animate="fadeIn">
-                        <h3 class="a1" data-animate="fadeInDown">{{ $post_data->gallery_title }}</h3>
+                        <h3 class="a1" data-animate="fadeInDown">{{ $image_tiles->gallery_title }}</h3>
                         <a data-rel="prettyPhoto" href="{{ url('/storage/galleries/'. $img) }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                         <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
                     </div>

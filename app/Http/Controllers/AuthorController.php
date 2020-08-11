@@ -34,20 +34,35 @@ class AuthorController extends Controller
         $new_post->paperwork_desc = request('pw_desc');
         $file_paperwork = $request->file('pw_upload');
         $originalname_paper = $file_paperwork->getClientOriginalName();
-        $new_post->paperwork_file = $file_paperwork->storeAs('/storage/paperwork', $originalname_paper);
+        $new_post->paperwork_file = $file_paperwork->storeAs('storage/paperwork', $originalname_paper);
 
         //Notes
         $new_post->note_title = request('note_name');
         $new_post->note_desc = request('note_desc');
         $file_note = $request->file('note_upload');
         $originalname_note = $file_note->getClientOriginalName();
-        $new_post->note_file = $file_note->storeAs('/storage/notes', $originalname_note);
+        $new_post->note_file = $file_note->storeAs('storage/notes', $originalname_note);
 
-        //galleries
-        $new_post->gallery_title = request('gallery_name');
-        $new_post->gallery_desc = request('gallery_desc');
         $new_post->user_id = auth()->user()->id;
         $new_post->save();
+
+        $post_id = $new_post->id;
+        //dd($post_id);
+   
+        //dd([$gallery,$new_post]);
+        return Redirect::route('gallery_setup',['post_no' => $post_id])->with('data_key', $post_id);
+        //return Redirect()->route('gallery_setup',['post_no' => $post_id]);
+    }
+
+    public function upload_gallery(Request $request) {
+        //dd($post_id);
+        //dd(request('belongsToPost'));
+        //galleries
+        $gallery = new Gallery(); 
+        $gallery->gallery_title = request('gallery_name');
+        $gallery->gallery_desc = request('gallery_desc');
+        $gallery->post_id = request('belongsToPost');
+        
 
         //multiple file upload on galleries table
         $this->validate($request, [
@@ -61,18 +76,19 @@ class AuthorController extends Controller
             {
                 $name_file = $image->getClientOriginalName();               
                 $gallery_path = public_path('/storage/galleries/'. $name_file);  
-                Image::make($image)->resize(700, 500)->save($gallery_path);
+                $thumbnail_path = public_path('/storage/galleries/Thumbnails/'. $name_file);
+                Image::make($image)->resize(940, 450)->save($gallery_path);
+                Image::make($image)->resize(600, 450)->save($thumbnail_path);
                 $data_imgs[] = $name_file;              
             }
         }
-
-        $gallery = new Gallery(); 
-        $gallery->filename=json_encode($data_imgs);
-        $gallery->post_id = $new_post->id;
         
-        $gallery->save();      
-        //dd([$gallery,$new_post]);
-        return Redirect()->route('category');
+        $gallery->filename=json_encode($data_imgs);
+        //$gallery->post_id = $post_id;
+        
+        $gallery->save(); 
+        //dd($gallery); 
+        return Redirect()->route('category');         
     }
 
     public function update_profile() {
@@ -116,6 +132,7 @@ class AuthorController extends Controller
 
     public function paperwork_tiles() {
         $all_post = DB::table('posts')->join('galleries','galleries.post_id','posts.id')->get();
+        //dd($all_post);
         return view('list-course', ['posting'=>$all_post]);
     }
 
@@ -133,7 +150,7 @@ class AuthorController extends Controller
         $user_d = DB::table('users')->where('id', $x)->first();
 
         $img_tiles = Gallery::where('post_id', $post_id)->first();
-        //dd($post_id);
+        //dd($post_array, $img_tiles);
         return view('post-single', ['post_data'=>$post_d, 'user_data'=>$user_d, 'image_tiles'=>$img_tiles]);
     }
 
@@ -147,6 +164,7 @@ class AuthorController extends Controller
 
     public function categories() {
         $ctg = DB::table('posts')->join('galleries','galleries.post_id','posts.id')->get();
+        //dd($ctg);
 
         $ctg_main = collect($ctg->groupBy('category'));
         $ctg_side = $ctg->groupBy('category'); // in blade pass foreach {{ x }} {{ $ctg_side->count() }}
