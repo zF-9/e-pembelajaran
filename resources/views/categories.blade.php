@@ -109,15 +109,16 @@
         <div class="hline"></div>
         <ul class="popular-posts">
         @foreach($latest as $key => $latest_post)
-          <li>
+          @if($loop->iteration < 6)
+            <li>
                 @php $imgs = json_decode($latest_post->filename,true); @endphp         
-                  @if(is_array($imgs) && !empty($imgs))
-                    <a href="#"><img height="70" width="70" src="/storage/galleries/{{ $imgs[0] }}"></a>
-                  @endif
-
-            <p><a href="#">{{ $latest_post->paperwork_title }}</a></p>
-            <em>Terbitan: {{ $latest_post->date_publish }}</em>
-          </li>
+                @if(is_array($imgs) && !empty($imgs))
+                  <a href="/post/{{ $latest_post->post_id }}"><img height="70" width="70" src="/storage/galleries/{{ $imgs[0] }}"></a>
+                @endif
+              <p><a href="/post/{{ $latest_post->post_id }}">{{ $latest_post->paperwork_title }}</a></p>
+              <em>Terbitan: {{ $latest_post->date_publish }}</em>
+            </li>
+          @endif
         @endforeach
           <!--<li>
             <a href="#"><img src="images/thumb02.jpg" alt="Popular Post"></a>

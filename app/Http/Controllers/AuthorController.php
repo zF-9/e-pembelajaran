@@ -170,6 +170,7 @@ class AuthorController extends Controller
         $ctg_side = $ctg->groupBy('category'); // in blade pass foreach {{ x }} {{ $ctg_side->count() }}
 
         $latest_post = collect($ctg);
+        //dd($latest_post);
 
         return view('categories', ['content'=>$ctg_main, 'side_content'=>$ctg_side, 'latest'=>$latest_post]);
     }

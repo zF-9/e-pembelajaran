@@ -68,7 +68,7 @@
             @foreach($images as $img)
             <div class="portfolio-item graphic-design">
               <div class="he-wrap tpl6">
-                <img src="{{ url('/storage/galleries/'. $img) }}" alt="">
+                <img src="{{ url('/storage/galleries/Thumbnails/'. $img) }}" alt="">
                 <div class="he-view">
                   <div class="bg a0" data-animate="fadeIn">
                     <h3 class="a1" data-animate="fadeInDown">{{ $datax->paperwork_title }}</h3>

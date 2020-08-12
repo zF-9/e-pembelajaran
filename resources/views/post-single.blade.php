@@ -38,9 +38,11 @@
               <img src="/storage/galleries/{{ $imgs[0] }}" alt="">
             </div>          
             @foreach($imgs as $key => $gallery_img)     
+              @if( $loop->iteration > 1)
                   <div class="item">
                     <img src="/storage/galleries/{{ $gallery_img }}" alt="">
                   </div>  
+              @endif
             @endforeach
             @endif
           </div>
@@ -96,7 +98,7 @@
             @foreach($images as $img)
             <div class="portfolio-item graphic-design">
                 <div class="he-wrap tpl6">
-                    <img class="gallery" src="{{ url('/storage/galleries/'. $img) }}" alt="">
+                    <img class="gallery" src="{{ url('/storage/galleries/Thumbnails/'. $img) }}" alt="">
                     <div class="he-view">
                     <div class="bg a0" data-animate="fadeIn">
                         <h3 class="a1" data-animate="fadeInDown">{{ $image_tiles->gallery_title }}</h3>

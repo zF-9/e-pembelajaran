@@ -42,4 +42,20 @@ class HomeController extends Controller
         $galleries_preview = DB::Table('galleries')->join('posts','posts.id','galleries.post_id')->get();
         return view('index-new',['previews' => $galleries_preview]);
     }
+
+    public function search_querries() {
+        $search_tag = request('keyword_search');
+        $search_category = request('choices-single-defaul');
+
+        //priority goes to keyword search dulu baru check kalau ada category selected atau tidak 
+        $existing_post = DB::table('galleries')->join('posts','posts.id','galleries.post_id')
+        ->Where('paperwork_title', 'like', '%'.$search_tag.'%') 
+        ->orWhere('category', $search_category)
+        ->get();
+    
+        //dd([$search_tag,$search_category]);
+        //dd($existing_post);
+
+        return view('list-course', ['posting'=>$existing_post]);
+    }
 }

@@ -9,7 +9,8 @@
   </head>
   <body>
     <div class="s013">
-      <form>
+      <form method="POST" action="/search_scope" enctype="multipart/form-data"> 
+      {{ csrf_field() }}
         <fieldset>
           <legend>PORTAL E-PEMBELAJARAN JPANS</legend>
         </fieldset>
@@ -18,7 +19,7 @@
             <div class="input-wrap first">
               <div class="input-field first">
                 <label>KATA KUNCI</label>
-                <input type="text" placeholder="" />
+                <input name="keyword_search" type="text" placeholder="" />
               </div>
             </div>
             <div class="input-wrap second">
@@ -26,12 +27,13 @@
                 <label>KATEGORI</label>
                 <div class="input-select">
                   <select data-trigger="" name="choices-single-defaul">
-                    <option placeholder="">Pengurusan</option>
+                    <option value="0" placeholder="">...Pilih Kategori</option>
+                    <option>Pengurusan</option>
                     <option>Kempimpinan</option>
                     <option>Polisi</option>
                     <option>Governan</option>
                     <option>Kewangan</option>
-                    <option>I.T</option>
+                    <option>TEKNOLOGI MAKLUMAT</option>
                     <option>Ekonomi</option>
                     <option>Perhutanan</option>
                     <option>Pertanian</option>
@@ -43,7 +45,7 @@
               </div>
             </div>
           </div>
-          <button class="btn-search" type="button">CARI</button>
+          <button class="btn-search" type="button submit">CARI</button>
         </div>
       </form>
     </div>

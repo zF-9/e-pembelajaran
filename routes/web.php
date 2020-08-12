@@ -97,3 +97,5 @@ Route::post('/updateProfile', 'AuthorController@update_profile');
 Route::get('/{data}/gallery', 'AuthorController@gallery_tiles')->name('gallery');
 Route::get('/post/{post_id}', 'AuthorController@single_article')->name('article');
 
+Route::post('/search_scope', 'HomeController@search_querries');
+
