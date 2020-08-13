@@ -102,7 +102,7 @@
                     <div class="he-view">
                     <div class="bg a0" data-animate="fadeIn">
                         <h3 class="a1" data-animate="fadeInDown">{{ $image_tiles->gallery_title }}</h3>
-                        <a data-rel="prettyPhoto" href="{{ url('/storage/galleries/'. $img) }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                        <a data-rel="prettyPhoto" href="{{ url('storage/galleries/'. $img) }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
                         <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
                     </div>
                     <!-- he bg -->

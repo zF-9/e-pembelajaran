@@ -124,6 +124,7 @@
             <a href="#"><img src="images/thumb02.jpg" alt="Popular Post"></a>
             <p><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></p>
             <em>Posted on 03/01/14</em>
+            </li>
             <li>
               <a href="#"><img src="images/thumb03.jpg" alt="Popular Post"></a>
               <p><a href="#">Lorem ipsum dolor sit amet consectetur adipiscing elit</a></p>

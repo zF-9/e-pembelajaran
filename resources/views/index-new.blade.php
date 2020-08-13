@@ -142,9 +142,9 @@
             <img src="images/portfolio/portfolio_04.jpg" alt="">
             <div class="he-view">
               <div class="bg a0" data-animate="fadeIn">
-                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
+                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item xxxx</h3>
                 <a data-rel="prettyPhoto" href="images/portfolio/portfolio_04.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
+                <a href="https://online.flippingbook.com/view/949129/" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
               </div>
               <!-- he bg -->
             </div>

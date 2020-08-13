@@ -77,7 +77,7 @@ class AuthorController extends Controller
                 $name_file = $image->getClientOriginalName();               
                 $gallery_path = public_path('/storage/galleries/'. $name_file);  
                 $thumbnail_path = public_path('/storage/galleries/Thumbnails/'. $name_file);
-                Image::make($image)->resize(940, 450)->save($gallery_path);
+                Image::make($image)->resize(940, 550)->save($gallery_path);
                 Image::make($image)->resize(600, 450)->save($thumbnail_path);
                 $data_imgs[] = $name_file;              
             }
@@ -127,7 +127,7 @@ class AuthorController extends Controller
                         ->join('galleries','galleries.post_id','posts.id')
                         ->get();
 
-        return view('profile-page', ['post'=>$personal_post, ]);
+        return view('profile-page', ['post'=>$personal_post ]);
     }
 
     public function paperwork_tiles() {
